@@ -21,9 +21,6 @@ const copyrightYear = new Date().getFullYear();
 // Developer or team behind the website
 const craftedBy = { name: "The Yellow", url: "https://www.theyellow.top/" };
 
-// Trademark notice
-const trademarkNotice =
-  "Microsoft&reg; and Excel&reg; are registered trademarks or trademarks of Microsoft Corporation";
 ---
 
 <footer
@@ -49,7 +46,7 @@ const trademarkNotice =
 
       {/* Contact Information Section */}
       <div class="col-span-1 md:col-span-2 xl:col-span-1 xl:col-start-3">
-        <ContactInfo {...contactDetails} />
+        <ContactInfo/>
       </div>
 
       {/* Email Subscription Form */}
