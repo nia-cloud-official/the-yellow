@@ -1,5 +1,8 @@
 {
-  "name": "the-yellow ",
+  "name": "the-yellow-website",
+  "description": "A website for the yellow community.",
+  "author": "The Yellow Community",
+  "license": "MIT",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
