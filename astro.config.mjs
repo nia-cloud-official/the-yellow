@@ -1,31 +1,28 @@
-// @ts-check
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
-import react from "@astrojs/react";
-import markdoc from "@astrojs/markdoc";
-import keystatic from "@keystatic/astro"
-import svelte from "@astrojs/svelte";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
+import svelte from '@astrojs/svelte';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  // The `site` property specifies the base URL for your site.
-  // Be sure to update this to your own domain (e.g., "https://yourdomain.com") before deploying.
-  site: "https://data-nova.vercel.app",
-  prefetch: true,
-  trailingSlash: "never",
-  experimental: {
-    clientPrerender: true,
-  },
+  site: 'https://the-yellow-official.netlify.app', // Replace with your site's URL
   integrations: [
+    tailwind({
+      config: './tailwind.config.js', // Ensure this file exists
+    }),
     react(),
-    markdoc(),
-    ...(process.env.SKIP_KEYSTATIC ? [] : [keystatic()]),
     svelte(),
   ],
+  output: 'static', // Use 'static' for static hosting platforms like Netlify
+  adapter: vercel(), // Use the Vercel adapter for deployment
   vite: {
-    plugins: [tailwindcss()],
-  },
-  output: "server",
-  adapter: vercel(),
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: undefined, // Optimize chunk splitting
+        },
+      },
+    },
+  },site
 });
