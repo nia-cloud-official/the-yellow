@@ -48,17 +48,16 @@ const schema: WithContext<Thing> = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   inLanguage: "en-US",
-  "@id": Astro.url.href,
-  url: Astro.url.href,
+  "@id": "https://the-yellow-official.netlify.app/404",
+  url: "https://the-yellow-official.netlify.app/404",
   name: "Page Not Found",
   description:
     "Sorry, we couldn't find the page you're looking for. Explore our resources or go back to the homepage.",
   isPartOf: {
     "@type": "WebSite",
-    url: `${Astro.site}`,
+    url: "https://the-yellow-official.netlify.app",
     name: "The Yellow",
-    description:
-      "The Yellow, A software company.",
+    description: "The Yellow, A software company.",
   },
 };
 ---
